@@ -4,6 +4,7 @@
 using namespace std;
 
 string computerDecision();
+string playerChoice();
 
 int main() {
 
@@ -14,15 +15,32 @@ int main() {
 
     cout << "Choose Rock, Paper or Scissors:\n";
 
-    // Take the users choice as a string and display it
-    string choice;
-    cin >> choice;
-    cout << "Player: " << choice << endl;
+    // Display player choice
+    string player = playerChoice();
+    cout << "Player: " << player << endl;
 
     // Display computers choice
     string computer = computerDecision();
     cout << "Computer: " << computer << endl;
 
+}
+
+string playerChoice() {
+
+    // Take the player choice as a string and display it
+    string choice;
+
+    cin >> choice;
+
+    // Check that the user chooses a valid option
+    if (choice != "rock" || choice != "paper" || choice != "scissors") {
+
+        cout << "Please choose Rock, Paper or Scissors!\n";
+    }
+    else {
+
+        cout << "Player: " << choice << endl;
+    }
 }
 
 string computerDecision() {
@@ -41,6 +59,7 @@ string computerDecision() {
             break;
         case 3:
             cout << "Computer: Scissors";
+            break;
         default:
             cout << "Computer: Rock";
             break;
