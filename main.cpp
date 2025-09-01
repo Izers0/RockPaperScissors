@@ -3,6 +3,7 @@
 #include <cstdlib>
 using namespace std;
 
+// Declare functions
 string computerDecision();
 string playerChoice();
 
@@ -33,7 +34,7 @@ string playerChoice() {
     cin >> choice;
 
     // Check that the user chooses a valid option
-    if (choice != "rock" || choice != "paper" || choice != "scissors") {
+    if (choice != "rock" && choice != "paper" && choice != "scissors") {
 
         cout << "Please choose Rock, Paper or Scissors!\n";
     }
@@ -52,16 +53,12 @@ string computerDecision() {
     switch (number) {
 
         case 1:
-            cout << "Computer: Rock";
-            break;
+            return "Computer: Rock";
         case 2:
-            cout << "Computer: Paper";
-            break;
+            return "Computer: Paper";
         case 3:
-            cout << "Computer: Scissors";
-            break;
+            return "Computer: Scissors";
         default:
-            cout << "Computer: Rock";
-            break;
+            return "Computer: Rock";
     }
 }
