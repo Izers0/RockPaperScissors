@@ -1,11 +1,11 @@
 #include <iostream>
 #include <ctime>
-#include <cstdlib>
 using namespace std;
 
 // Declare functions
 string computerDecision();
 string playerChoice();
+string winLogic();
 
 int main() {
 
@@ -37,7 +37,9 @@ string playerChoice() {
 
         cout << "Please choose Rock, Paper or Scissors!\n";
     }
-    return "Player: " + choice;
+    else {
+        return choice;
+    }
 }
 
 string computerDecision() {
@@ -56,5 +58,40 @@ string computerDecision() {
             return "Computer: Scissors";
         default:
             return "Computer: Rock";
+    }
+}
+
+string winLogic () {
+
+    // Initialise choice value for win condition
+    int playerChoiceValue = 0;
+    int computerChoiceValue = 0;
+
+    // Player Choice
+    if (playerChoice() == "rock") {
+        playerChoiceValue += 1;
+        return "Player: " + playerChoice();
+    }
+    if (playerChoice() == "paper") {
+        playerChoiceValue += 2;
+        return "Player: " + playerChoice();
+    }
+    if (playerChoice() == "scissors") {
+        playerChoiceValue += 3;
+        return "Player: " + playerChoice();
+    }
+
+    // Computer Choice
+    if (computerDecision() == "rock") {
+        computerChoiceValue += 1;
+        return "Player: " + computerDecision();
+    }
+    if (computerDecision() == "paper") {
+        computerChoiceValue += 2;
+        return "Player: " + computerDecision();
+    }
+    if (computerDecision() == "scissors") {
+        computerChoiceValue += 3;
+        return "Player: " + computerDecision();
     }
 }
