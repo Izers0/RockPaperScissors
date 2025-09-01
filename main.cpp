@@ -24,29 +24,36 @@ int main() {
     string computer = computerDecision();
     cout << computer << endl;
 
+    // Decide the winner and display it
     string winner = winLogic(player, computer);
     cout << winner << endl;
 }
 
+/* Players Choice */
 string playerChoice() {
 
     // Take the player choice as a string and display it
     string choice;
 
-    cin >> choice;
+    // Loop until the user uses the correct input
+    while (choice != "rock" && choice != "paper" && choice != "scissors") {
 
-    cout << "Player: ";
+        // get user input
+        cin >> choice;
 
-    // Check that the user chooses a valid option
-    if (choice != "rock" && choice != "paper" && choice != "scissors") {
+        cout << "Player: ";
 
-        cout << "Please choose Rock, Paper or Scissors!\n";
-    }
-    else {
-        return choice;
+        // Check that the user chooses a valid option
+        if (choice != "rock" && choice != "paper" && choice != "scissors") {
+
+            cout << "Please choose rock, paper or scissors!\n";
+        } else {
+            return choice;
+        }
     }
 }
 
+/* Computers Choice */
 string computerDecision() {
 
     // Generate the random number between 0 and 100
@@ -68,6 +75,7 @@ string computerDecision() {
     }
 }
 
+/* Win Logic */
 string winLogic (string player, string computer) {
 
     // Initialise choice value for win condition
@@ -92,6 +100,7 @@ string winLogic (string player, string computer) {
         computerValue = 3;
     }
 
+    // Compare the value of the users choice and the computers choice
     if (playerValue == computerValue) {
         cout << "Draw! \n";
     } else if ((playerValue == 1 && computerValue == 3) ||
