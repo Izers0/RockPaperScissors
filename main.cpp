@@ -18,12 +18,11 @@ int main() {
 
     // Display player choice
     string player = playerChoice();
-    cout << "Player: " << player << endl;
+    cout << player << endl;
 
     // Display computers choice
     string computer = computerDecision();
-    cout << "Computer: " << computer << endl;
-
+    cout << computer << endl;
 }
 
 string playerChoice() {
@@ -38,10 +37,7 @@ string playerChoice() {
 
         cout << "Please choose Rock, Paper or Scissors!\n";
     }
-    else {
-
-        cout << "Player: " << choice << endl;
-    }
+    return "Player: " + choice;
 }
 
 string computerDecision() {
