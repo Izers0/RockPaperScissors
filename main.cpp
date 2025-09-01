@@ -70,28 +70,24 @@ string winLogic () {
     // Player Choice
     if (playerChoice() == "rock") {
         playerChoiceValue += 1;
-        return "Player: " + playerChoice();
-    }
-    if (playerChoice() == "paper") {
+        cout << "Player: " + playerChoice();
+    } else if (playerChoice() == "paper") {
         playerChoiceValue += 2;
-        return "Player: " + playerChoice();
-    }
-    if (playerChoice() == "scissors") {
+        cout << "Player: " + playerChoice();
+    } else{
         playerChoiceValue += 3;
-        return "Player: " + playerChoice();
+        cout << "Player: " + playerChoice();
     }
 
     // Computer Choice
     if (computerDecision() == "rock") {
         computerChoiceValue += 1;
-        return "Player: " + computerDecision();
-    }
-    if (computerDecision() == "paper") {
+        cout << "Player: " + computerDecision();
+    } else if (computerDecision() == "paper") {
         computerChoiceValue += 2;
-        return "Player: " + computerDecision();
-    }
-    if (computerDecision() == "scissors") {
+        cout << "Player: " + computerDecision();
+    } else{
         computerChoiceValue += 3;
-        return "Player: " + computerDecision();
+        cout << "Player: " + computerDecision();
     }
 }
