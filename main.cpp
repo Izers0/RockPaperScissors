@@ -5,7 +5,7 @@ using namespace std;
 // Declare functions
 string computerDecision();
 string playerChoice();
-string winLogic();
+string winLogic(string player, string computer);
 
 int main() {
 
@@ -23,6 +23,9 @@ int main() {
     // Display computers choice
     string computer = computerDecision();
     cout << computer << endl;
+
+    string winner = winLogic(player, computer);
+    cout << winner << endl;
 }
 
 string playerChoice() {
@@ -31,6 +34,8 @@ string playerChoice() {
     string choice;
 
     cin >> choice;
+
+    cout << "Player: ";
 
     // Check that the user chooses a valid option
     if (choice != "rock" && choice != "paper" && choice != "scissors") {
@@ -47,47 +52,53 @@ string computerDecision() {
     // Generate the random number between 0 and 100
     int number = (rand() % 3) + 1;
 
+    cout << "Computer: ";
+
     // Switch case for computer choice
     switch (number) {
 
         case 1:
-            return "Computer: Rock";
+            return "rock";
         case 2:
-            return "Computer: Paper";
+            return "paper";
         case 3:
-            return "Computer: Scissors";
+            return "scissors";
         default:
-            return "Computer: Rock";
+            return "rock";
     }
 }
 
-string winLogic () {
+string winLogic (string player, string computer) {
 
     // Initialise choice value for win condition
-    int playerChoiceValue = 0;
-    int computerChoiceValue = 0;
+    int playerValue = 0;
+    int computerValue = 0;
 
     // Player Choice
-    if (playerChoice() == "rock") {
-        playerChoiceValue += 1;
-        cout << "Player: " + playerChoice();
-    } else if (playerChoice() == "paper") {
-        playerChoiceValue += 2;
-        cout << "Player: " + playerChoice();
+    if (player == "rock") {
+        playerValue = 1;
+    } else if (player == "paper") {
+        playerValue = 2;
     } else{
-        playerChoiceValue += 3;
-        cout << "Player: " + playerChoice();
+        playerValue = 3;
     }
 
     // Computer Choice
-    if (computerDecision() == "rock") {
-        computerChoiceValue += 1;
-        cout << "Player: " + computerDecision();
-    } else if (computerDecision() == "paper") {
-        computerChoiceValue += 2;
-        cout << "Player: " + computerDecision();
+    if (computer == "rock") {
+        computerValue = 1;
+    } else if (computer == "paper") {
+        computerValue = 2;
     } else{
-        computerChoiceValue += 3;
-        cout << "Player: " + computerDecision();
+        computerValue = 3;
+    }
+
+    if (playerValue == computerValue) {
+        cout << "Draw! \n";
+    } else if ((playerValue == 1 && computerValue == 3) ||
+              (playerValue == 2 && computerValue == 1) ||
+              (playerValue == 3 && computerValue == 2)) {
+        cout << "You win! \n";
+    } else {
+        return "You lose! \n";
     }
 }
